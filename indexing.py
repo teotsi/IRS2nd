@@ -22,7 +22,7 @@ if __name__ == '__main__':
             chunk_size=50,  # setting the batch size
     ):
         action, result = result.popitem()
-        doc_id = f"/json_docs/doc/{result['_id']}"
+        doc_id = f"Document with ID {result['_id']} was indexed successfully"
         if not ok:  # printing status
             print(f"Failed to {action} document {doc_id}: {result}")
         else:

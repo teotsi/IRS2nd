@@ -22,4 +22,5 @@ def query_gen(filename):
     for query in queries:
         if query:  # checking if empty
             id = query.split('\n')[0].strip()
-            yield (id, query[len(id):].strip())
+            text = query[len(id):].strip()
+            yield id, text
