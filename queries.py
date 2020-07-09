@@ -13,7 +13,7 @@ def get_more_like_this_query(size, text):
                 ],
                 "like": text,  # specifying the string to be used
                 "min_term_freq": 1,
-                "max_query_terms": 25
+                "max_query_terms": 25,
             }
         }
     }
@@ -41,7 +41,7 @@ if __name__ == '__main__':
         print(size)
         with open(str(size) + '_results.txt', 'w') as results:
             for query_index, (_, query) in enumerate(query_gen(file_path), 1):
-                query_body = get_more_like_this_query(size,query)
+                query_body = get_more_like_this_query(size, query)
                 result = es.search(index="json_docs", body=query_body)
                 for index, hit in enumerate(result['hits']['hits'], 1):
                     id = hit['_id']

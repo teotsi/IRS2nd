@@ -1,15 +1,6 @@
 from elasticsearch import Elasticsearch
 from elasticsearch.helpers import streaming_bulk
-from utilities import query_gen, check_arguments
-
-
-# generates dictionaries containing text and id keys
-def parse_docs(path):
-    for id, document in query_gen(path):
-        yield {'_id': id,
-               'text': document
-               }
-
+from utilities import query_gen, check_arguments, parse_docs
 
 if __name__ == '__main__':
     file_path = check_arguments("<ir2020_files.txt path>")
